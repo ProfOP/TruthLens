@@ -1,0 +1,320 @@
+Folder PATH listing for volume Data
+Volume serial number is C051-0F07
+D:\TRUTHLENS\MODELS
++---Fever
+|   |   iteration-2-fever.ipynb
+|   |   iteration-5-fever.ipynb
+|   |   iteration-5-fever.log
+|   |   truthlens_fever_final.zip
+|   |   truthlens_fever_iteration2.zip
+|   |   truthlens_fever_iteration3.zip
+|   |   truthlens_fever_iteration4.zip
+|   |   truthlens_fever_models.zip
+|   |   
+|   +---truthlens_fever
+|   |   +---artifacts
+|   |   |   |   evidence_metadata.csv
+|   |   |   |   experiment_config.json
+|   |   |   |   fever_evidence.index
+|   |   |   |   validation_predictions.csv
+|   |   |   |   
+|   |   |   +---minilm_encoder
+|   |   |   |   |   config.json
+|   |   |   |   |   config_sentence_transformers.json
+|   |   |   |   |   model.safetensors
+|   |   |   |   |   modules.json
+|   |   |   |   |   README.md
+|   |   |   |   |   sentence_bert_config.json
+|   |   |   |   |   tokenizer.json
+|   |   |   |   |   tokenizer_config.json
+|   |   |   |   |   
+|   |   |   |   \---1_Pooling
+|   |   |   |           config.json
+|   |   |   |           
+|   |   |   \---nli_model
+|   |   |           config.json
+|   |   |           model.safetensors
+|   |   |           tokenizer.json
+|   |   |           tokenizer_config.json
+|   |   |           
+|   |   +---artifacts_v2
+|   |   |       calibration_results.csv
+|   |   |       evaluation_v2.csv
+|   |   |       evidence_metadata_v2.csv
+|   |   |       experiment_report_v2.json
+|   |   |       fever_evidence_v2.index
+|   |   |       
+|   |   +---artifacts_v3
+|   |   |       all_complete_groups_metrics.csv
+|   |   |       diagnostic_report.json
+|   |   |       gold_vs_retrieved.csv
+|   |   |       single_sentence_metrics.csv
+|   |   |       
+|   |   +---artifacts_v4
+|   |   |       calibration_results_v4.csv
+|   |   |       experiment_report_v4.json
+|   |   |       fresh_evaluation_predictions.csv
+|   |   |       fresh_nli_cache.json
+|   |   |       iteration_comparison.csv
+|   |   |       selected_parameters.json
+|   |   |       
+|   |   +---artifacts_v5
+|   |   |   |   calibration_results.csv
+|   |   |   |   evaluation_manifest.csv
+|   |   |   |   final_nli_cache.json
+|   |   |   |   final_parameters.json
+|   |   |   |   final_predictions.csv
+|   |   |   |   final_report.json
+|   |   |   |   model_comparison.csv
+|   |   |   |   retrieval_diagnostics.csv
+|   |   |   |   
+|   |   |   \---bge_reranker
+|   |   |           config.json
+|   |   |           config_sentence_transformers.json
+|   |   |           model.safetensors
+|   |   |           modules.json
+|   |   |           README.md
+|   |   |           sentence_bert_config.json
+|   |   |           tokenizer.json
+|   |   |           tokenizer_config.json
+|   |   |           
+|   |   \---raw
+|   |           dev.jsonl
+|   |           train.jsonl
+|   |           wiki-pages.zip
+|   |           
+|   +---truthlens_fever_final
+|   |   |   calibration_results.csv
+|   |   |   evaluation_manifest.csv
+|   |   |   final_nli_cache.json
+|   |   |   final_parameters.json
+|   |   |   final_predictions.csv
+|   |   |   final_report.json
+|   |   |   model_comparison.csv
+|   |   |   retrieval_diagnostics.csv
+|   |   |   
+|   |   \---bge_reranker
+|   |           config.json
+|   |           config_sentence_transformers.json
+|   |           model.safetensors
+|   |           modules.json
+|   |           README.md
+|   |           sentence_bert_config.json
+|   |           tokenizer.json
+|   |           tokenizer_config.json
+|   |           
+|   +---truthlens_fever_iteration2
+|   |       calibration_results.csv
+|   |       evaluation_v2.csv
+|   |       evidence_metadata_v2.csv
+|   |       experiment_report_v2.json
+|   |       fever_evidence_v2.index
+|   |       
+|   +---truthlens_fever_iteration3
+|   |       all_complete_groups_metrics.csv
+|   |       diagnostic_report.json
+|   |       gold_vs_retrieved.csv
+|   |       single_sentence_metrics.csv
+|   |       
+|   +---truthlens_fever_iteration4
+|   |       calibration_results_v4.csv
+|   |       experiment_report_v4.json
+|   |       fresh_evaluation_predictions.csv
+|   |       fresh_nli_cache.json
+|   |       iteration_comparison.csv
+|   |       selected_parameters.json
+|   |       
+|   \---truthlens_fever_models
+|       |   evidence_metadata.csv
+|       |   experiment_config.json
+|       |   fever_evidence.index
+|       |   validation_predictions.csv
+|       |   
+|       +---minilm_encoder
+|       |   |   config.json
+|       |   |   config_sentence_transformers.json
+|       |   |   model.safetensors
+|       |   |   modules.json
+|       |   |   README.md
+|       |   |   sentence_bert_config.json
+|       |   |   tokenizer.json
+|       |   |   tokenizer_config.json
+|       |   |   
+|       |   +---1_Pooling
+|       |   |       config.json
+|       |   |       
+|       |   \---2_Normalize
+|       \---nli_model
+|               config.json
+|               model.safetensors
+|               tokenizer.json
+|               tokenizer_config.json
+|               
++---FFC++
+|   |   new.ipynb
+|   |   pilot-1.log
+|   |   truthlens_faceforensics_model.zip
+|   |   
+|   +---truthlens_faceforensics
+|   |       binary_threshold_calibration.csv
+|   |       efficientnet_b0_best.pt
+|   |       efficientnet_b0_improved.pt
+|   |       final_metrics.json
+|   |       gradcam_authentic.png
+|   |       gradcam_manipulated.png
+|   |       improved_training_curves.png
+|   |       improved_training_history.csv
+|   |       manipulation_type_results.csv
+|   |       model_config.json
+|   |       test_confusion_matrix.png
+|   |       test_predictions.csv
+|   |       validation_threshold_analysis.csv
+|   |       
+|   \---truthlens_faceforensics_model
+|           binary_threshold_calibration.csv
+|           efficientnet_b0_best.pt
+|           efficientnet_b0_improved.pt
+|           final_metrics.json
+|           gradcam_authentic.png
+|           gradcam_manipulated.png
+|           improved_training_curves.png
+|           improved_training_history.csv
+|           manipulation_type_results.csv
+|           model_config.json
+|           test_confusion_matrix.png
+|           test_predictions.csv
+|           validation_threshold_analysis.csv
+|           
++---Liar
+|   |   liar-claim-verification.ipynb
+|   |   liar-claim-verification.log
+|   |   truthlens_liar_models.zip
+|   |   
+|   +---truthlens_liar
+|   |   |   claim_metadata.csv
+|   |   |   liar_claims.index
+|   |   |   liar_classifier.joblib
+|   |   |   model_config.json
+|   |   |   validation_metrics.json
+|   |   |   
+|   |   \---minilm_encoder
+|   |       |   config.json
+|   |       |   config_sentence_transformers.json
+|   |       |   model.safetensors
+|   |       |   modules.json
+|   |       |   README.md
+|   |       |   sentence_bert_config.json
+|   |       |   tokenizer.json
+|   |       |   tokenizer_config.json
+|   |       |   
+|   |       \---1_Pooling
+|   |               config.json
+|   |               
+|   \---truthlens_liar_models
+|       |   claim_metadata.csv
+|       |   liar_claims.index
+|       |   liar_classifier.joblib
+|       |   model_config.json
+|       |   validation_metrics.json
+|       |   
+|       \---minilm_encoder
+|           |   config.json
+|           |   config_sentence_transformers.json
+|           |   model.safetensors
+|           |   modules.json
+|           |   README.md
+|           |   sentence_bert_config.json
+|           |   tokenizer.json
+|           |   tokenizer_config.json
+|           |   
+|           +---1_Pooling
+|           |       config.json
+|           |       
+|           \---2_Normalize
+\---Welfake
+    |   results.zip
+    |   welfake-1.ipynb
+    |   
+    +---fake_news
+    |   |   distilbert_validation_results.csv
+    |   |   truthlens_distilbert_model.zip
+    |   |   truthlens_final_test_metrics.json
+    |   |   truthlens_final_test_results.csv
+    |   |   truthlens_text_model_config.json
+    |   |   welfake-1.log
+    |   |   
+    |   +---distilbert_welfake
+    |   |   \---checkpoint-1592
+    |   |           config.json
+    |   |           model.safetensors
+    |   |           optimizer.pt
+    |   |           rng_state.pth
+    |   |           scaler.pt
+    |   |           scheduler.pt
+    |   |           tokenizer.json
+    |   |           tokenizer_config.json
+    |   |           trainer_state.json
+    |   |           training_args.bin
+    |   |           
+    |   +---shap_results
+    |   |       fake_example_shap.csv
+    |   |       real_example_shap.csv
+    |   |       uncertain_example_shap.csv
+    |   |       
+    |   +---truthlens_distilbert
+    |   |       config.json
+    |   |       model.safetensors
+    |   |       tokenizer.json
+    |   |       tokenizer_config.json
+    |   |       training_args.bin
+    |   |       
+    |   \---welfake_baseline
+    |           logistic_regression.joblib
+    |           tfidf_vectorizer.joblib
+    |           validation_metrics.json
+    |           validation_predictions.csv
+    |           
+    \---results
+        |   distilbert_validation_results.csv
+        |   truthlens_distilbert_model.zip
+        |   truthlens_final_test_metrics.json
+        |   truthlens_final_test_results.csv
+        |   truthlens_text_model_config.json
+        |   __huggingface_repos__.json
+        |   
+        +---distilbert_welfake
+        |   \---checkpoint-1592
+        |           config.json
+        |           model.safetensors
+        |           optimizer.pt
+        |           rng_state.pth
+        |           scaler.pt
+        |           scheduler.pt
+        |           tokenizer.json
+        |           tokenizer_config.json
+        |           trainer_state.json
+        |           training_args.bin
+        |           
+        +---shap_results
+        |       fake_example_shap.csv
+        |       real_example_shap.csv
+        |       uncertain_example_shap.csv
+        |       
+        +---truthlens_distilbert
+        |       config.json
+        |       model.safetensors
+        |       tokenizer.json
+        |       tokenizer_config.json
+        |       training_args.bin
+        |       
+        +---welfake_baseline
+        |       logistic_regression.joblib
+        |       tfidf_vectorizer.joblib
+        |       validation_metrics.json
+        |       validation_predictions.csv
+        |       
+        \---__results___files
+                __results___11_0.png
+                __results___37_0.png
+                __results___51_0.png
+                

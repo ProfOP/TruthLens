@@ -1,0 +1,8 @@
+# The image installs dependencies from requirements.txt and copies app.py + related_passages.py only.
+# Everything below is host-side local state and must not be sent as build context.
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+tests/
+*.log

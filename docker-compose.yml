@@ -1,0 +1,63 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: truthlens
+      POSTGRES_USER: truthlens
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-change-me-local}
+    volumes: [truthlens-db:/var/lib/postgresql/data]
+    healthcheck: {test: [CMD-SHELL, 'pg_isready -U truthlens -d truthlens'], interval: 10s, timeout: 5s, retries: 5}
+  ai-service:
+    build: ./ai-service
+    environment:
+      - TRUTHLENS_ROOT=/workspace
+      - TRUTHLENS_TEXT_CONFIDENCE_THRESHOLD=${TRUTHLENS_TEXT_CONFIDENCE_THRESHOLD:-0.70}
+      - TRUTHLENS_IMAGE_UNCERTAIN_MARGIN=${TRUTHLENS_IMAGE_UNCERTAIN_MARGIN:-0.05}
+      # Optional candidate-evidence discovery (FEVER page-title pilot). OFF by default: with 0 the
+      # service answers exactly as before. Rollback is this one value plus a restart.
+      - TRUTHLENS_RELATED_PASSAGES=${TRUTHLENS_RELATED_PASSAGES:-0}
+    # The discovery assets: the 742 MB title index and its page archive are read-only inputs, the
+    # bounded sentence-vector cache is the only writable one. The flag stays off unless enabled, so
+    # these mounts cost nothing when the feature is disabled.
+    volumes:
+      - ./models:/workspace/models:ro
+      - ./verification-logs:/workspace/verification-logs:ro
+      - ./storage:/workspace/storage
+    ports: ["8001:8001"]
+    # "Started" is not "ready": importing torch and loading the artefacts takes ~40 s, during which
+    # the backend answered a submitted job with "AI service unavailable". The backend now waits for
+    # this probe instead of for the process to appear.
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request;urllib.request.urlopen('http://127.0.0.1:8001/health', timeout=5).read()"]
+      interval: 10s
+      timeout: 10s
+      retries: 30
+      start_period: 120s
+  backend:
+    build: ./backend
+    environment:
+      - AI_SERVICE_URL=http://ai-service:8001
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/truthlens
+      - SPRING_DATASOURCE_USERNAME=truthlens
+      - SPRING_DATASOURCE_PASSWORD=${POSTGRES_PASSWORD:-change-me-local}
+      - JWT_SECRET=${JWT_SECRET:?JWT_SECRET must be set}
+      - TRUTHLENS_STORAGE_DIR=/app/storage
+    volumes: [./storage:/app/storage]
+    depends_on:
+      postgres: {condition: service_healthy}
+      ai-service: {condition: service_healthy}
+    ports: ["8080:8080"]
+  frontend:
+    image: node:22-alpine
+    working_dir: /app
+    # node_modules is mounted as a named volume, not read from the host tree: the container
+    # installs Linux binaries, and writing them into ./frontend/node_modules breaks the native
+    # Windows dev server. ./frontend stays source-only.
+    volumes: [./frontend:/app, truthlens-frontend-modules:/app/node_modules]
+    command: sh -c "npm install && npm run dev -- --host 0.0.0.0"
+    depends_on: [backend]
+    ports: ["5173:5173"]
+volumes:
+  truthlens-db: {}
+  truthlens-frontend-modules: {}
+

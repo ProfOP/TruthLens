@@ -1,0 +1,6 @@
+# Keep host build output and local state out of the Maven image build context.
+target/
+.git/
+*.log
+mvn-stderr.log
+mvn-stdout.log

@@ -1,0 +1,30 @@
+# Local secrets and runtime state — never commit
+.env
+.env.*
+!.env.example
+.truthlens-pids.txt
+logs/
+storage/
+verification-logs/
+
+# Large local assets (see README "Assets the supervisor must supply")
+models/
+data/
+
+# Build output and dependency caches
+backend/target/
+frontend/dist/
+dist/
+node_modules/
+ai-service/.venv/
+codes/myenv/
+.tools/
+__pycache__/
+*.pyc
+.pytest_cache/
+*.log
+
+# Editor / OS artefacts
+~$*
+.DS_Store
+Thumbs.db
