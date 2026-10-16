@@ -29,7 +29,7 @@ path. Ports **8001, 8080 and 5173** must be free on the machine.
 
 | | |
 |---|---|
-| **In** the repository (all you need to build) | `ai-service/` (app.py, related_passages.py, requirements.txt, Dockerfile, tests/), `backend/` (pom.xml, `mvnw`, `mvnw.cmd`, `.mvn/`, `src/`), `frontend/` (src/, index.html, package.json, package-lock.json, tsconfig.json, vite.config.ts), `docker-compose.yml`, `.env.example`, `.gitignore`, `backend/.dockerignore`, `ai-service/.dockerignore`, `docs/`, `scripts/`, `.github/workflows/ci.yml`, `model_files.txt` (a listing of the asset tree) |
+| **In** the repository (all you need to build) | `ai-service/` (app.py, related_passages.py, requirements.txt, Dockerfile, tests/), `backend/` (pom.xml, `mvnw`, `mvnw.cmd`, `.mvn/`, `src/`), `frontend/` (src/, index.html, package.json, package-lock.json, tsconfig.json, vite.config.ts), `docker-compose.yml`, `.env.example`, `.gitignore`, `backend/.dockerignore`, `ai-service/.dockerignore`, `docs/`, `scripts/`, `.github/workflows/ci.yml`, `model_files.txt` (a listing of the asset tree). Also tracked but **not read at run time**: `codes/` (four offline dataset-preparation scripts) and `capture_request.py` (a developer request-capture stub). |
 | **Not** in the repository | `models/` (12.1 GB of exported checkpoints and indexes; only ~1.3 GB is read at run time, see §2), `data/` (9.3 GB raw/licensed datasets — not needed to run the app), `storage/` (user uploads and analysis output), `verification-logs/` (1.44 GB, including the optional feature's pilot index), `.tools/`, `ai-service/.venv/`, `codes/myenv/`, `backend/target/`, `frontend/node_modules/`, `frontend/dist/`, `.env` |
 
 Every bind mount in `docker-compose.yml` is a **relative** path (`./models`, `./storage`,
