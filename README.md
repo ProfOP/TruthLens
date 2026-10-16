@@ -163,26 +163,6 @@ compile. It needs no model assets.
 
 ---
 
-# Measured results as they stand (this handoff changes none of them)
-
-Verified detail: `docs/verification.md`, requirement-by-requirement mapping: `docs/srs-traceability.md`.
-
-| SRS target | Measured | Status |
-|---|---|---|
-| Text classification accuracy > 85 % | 99.15 % overall on 6,368 held-out WELFake test rows at the deployed 0.70 abstention rule (coverage 99.72 %) | PASSED |
-| Image detection accuracy > 80 % | **70.07 %** overall (2,943/4,200) on held-out FaceForensics++ frames at the deployed 0.42 / margin-0.05 rule | **FAILED — NOT MET** |
-| Claim top-5 evidence retrieval > 80 % | annotated gold-evidence **recall@5 = 0.275** on the deployed Iteration-2 index; broader experimental indexes measured 0.645-0.870 were **not deployed** (failed their own gates) | **FAILED — NOT MET** |
-| §16 "Text API response under 5 seconds" | `POST /api/v1/analysis/text` -> 202 in **69.3 ms**; status read 27.3 ms | PASSED as literally worded (an enqueue confirmation, not a verdict) |
-| §7 "article analysis under 5 seconds" | submission -> `COMPLETED`: 14.446 s warm p50 on a 3-claim article (36.9 s in the one 2026-10-17 sample, disclosed as an unattributed outlier); a single-claim article 2.88-3.03 s | **FAILED — NOT MET** for realistic multi-claim articles |
-| Image analysis under 10 s | median 1.47 s | PASSED |
-| Dashboard load under 3 s | API median 0.029 s; cold browser DOMContentLoaded 625 ms | PASSED |
-| Availability 99 % (§7, no window defined) | two-hour controlled-demo observation: 240/240 ticks, 960/960 probe calls HTTP 200, 24/24 authenticated analyses COMPLETED = **100.0 % in that window** | EXCEEDED IN THE OBSERVED WINDOW — **not** a long-term 99 % claim |
-
-The optional "related passages" block, when enabled, is **candidate evidence for display only**. It never
-feeds the evidence gate and must not be read as support for a verdict; the flag ships OFF.
-
----
-
 # Development without Docker (native Windows)
 
 1. Copy `.env.example` to `.env` and set `SPRING_DATASOURCE_PASSWORD` and `JWT_SECRET` (at least 32
